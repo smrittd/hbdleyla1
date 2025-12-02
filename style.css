@@ -1,0 +1,375 @@
+/* Общие переменные */
+:root {
+  --bg1: #ff9a9e;
+  --bg2: #fecfef;
+  --accent: #fff7f9;
+  --muted: rgba(255, 255, 255, 0.85);
+  --shadow: 0 8px 30px rgba(13, 12, 20, 0.35);
+  --radius: 18px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body,
+html {
+  margin: 0;
+  padding: 0;
+  font-family: Inter, sans-serif;
+}
+
+body {
+  background: linear-gradient(135deg, var(--bg1), var(--bg2));
+  display: flex;
+  justify-content: center;
+  padding: 20px;
+}
+
+/* Контейнер */
+.page {
+  max-width: 980px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+}
+
+/* Hero */
+.hero {
+  text-align: center;
+  padding: 60px 20px;
+  background: linear-gradient(135deg, #ffbcd9, #ffd9ec);
+  border-radius: 15px;
+}
+
+.hero h1 {
+  font-size: 40px;
+  margin: 0;
+}
+
+.hero p {
+  margin-top: 10px;
+  font-size: 18px;
+  color: #fff;
+}
+
+/* Карточка */
+.card {
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: var(--radius);
+  padding: 28px;
+  box-shadow: var(--shadow);
+  backdrop-filter: blur(8px) saturate(120%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.card .header h2 {
+  margin: 0;
+  color: var(--accent);
+}
+
+/* Визуал (торт + сообщение) */
+.visual {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.cake {
+  width: 260px;
+  height: 200px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center; /* Центрируем слои */
+  margin: 10px auto; /* Центрируем торт в блоке */
+}
+
+.cake-layer {
+  width: 220px;
+  height: 48px;
+  border-radius: 12px;
+  position: absolute;
+  box-shadow: inset 0 -6px 12px rgba(0,0,0,0.12);
+  left: 50%; /* Центр слоя по горизонтали */
+  transform: translateX(-50%); /* Смещаем к центру */
+}
+
+.layer1 { background: linear-gradient(90deg,#ffe7f0,#ffd3e6); top: 110px; }
+.layer2 { background: linear-gradient(90deg,#ffd0e8,#ffc2df); top: 60px; }
+
+.candles {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  gap: 24px; /* расстояние между свечами */
+  position: absolute;
+  top: -35px; /* немного над тортом */
+  left: 50%;
+  transform: translateX(-50%);
+  height: 60px;
+}
+
+.candle {
+  width: 14px;
+  height: 42px;
+  background: linear-gradient(#fff, #ffd6e6);
+  border-radius: 4px;
+  position: relative;
+}
+
+.flame {
+  position: absolute;
+  top: -18px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 14px;
+  height: 18px;
+  background: radial-gradient(circle, #ffe08a 0%, #ff9b3d 60%, transparent 100%);
+  border-radius: 50%;
+  animation: flameFlicker 0.2s infinite alternate;
+  opacity: 1;
+  transform-origin: center;
+}
+
+.candle.extinguished .flame {
+  opacity: 0;
+}
+
+@keyframes flameFlicker {
+  from { transform: translateX(-50%) scale(1); }
+  to   { transform: translateX(-50%) scale(1.15); }
+}
+
+/* Сообщение */
+.message-box {
+  background: rgba(255, 255, 255, 0.03);
+  padding: 18px;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.04);
+  color: var(--accent);
+}
+
+/* Кнопки */
+.controls {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.btn {
+  background: rgba(255, 255, 255, 0.12);
+  color: var(--accent);
+  border: none;
+  padding: 10px 14px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.btn.ghost {
+  background: transparent;
+  border: 1px dashed rgba(255, 255, 255, 0.08);
+}
+
+.btn:active {
+  transform: translateY(2px);
+}
+
+/* Галерея */
+.gallery {
+  text-align: center;
+}
+
+.gallery h2 {
+  font-size: 32px;
+  margin-bottom: 20px;
+}
+
+.carousel {
+  overflow: hidden;
+  border-radius: 15px;
+}
+
+.carousel-track {
+  display: flex;
+  transition: transform 0.5s ease;
+}
+
+.carousel-track img {
+  width: 100%;
+  height: 400px;
+  object-fit: cover;
+}
+
+.carousel-buttons {
+  margin-top: 15px;
+}
+
+.carousel-buttons button {
+  padding: 10px 20px;
+  font-size: 20px;
+  border: none;
+  background: #ff85b3;
+  color: white;
+  border-radius: 8px;
+  cursor: pointer;
+  margin: 0 10px;
+  transition: 0.2s;
+}
+
+.carousel-buttons button:hover {
+  background: #ff6ca7;
+}
+
+.none{
+  width: 100px;
+  height: 200px;
+}
+
+/* Большое поздравление */
+.message {
+  background: white;
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.message h2 {
+  font-size: 30px;
+  margin-bottom: 15px;
+}
+
+.message p {
+  font-size: 20px;
+  line-height: 1.6;
+}
+
+/* Canvas конфетти */
+#confetti-canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 9999;
+}
+
+/* Адаптив */
+@media(max-width:720px) {
+  .cake {
+    width: 210px;
+    height: 170px;
+  }
+
+  .message-box {
+    width: 90%;
+  }
+}
+
+.balloons {
+  position: fixed;
+  bottom: 0;
+  width: 60px; /* ширина полосы появления */
+  height: 100vh;
+  pointer-events: none;
+  z-index: 9998;
+}
+
+#balloons-left {
+  left: 0;
+}
+
+#balloons-right {
+  right: 0;
+}
+
+.balloon {
+  position: absolute;
+  bottom: 0;
+  width: 24px;
+  height: 32px;
+  border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+  opacity: 0.9;
+  animation: rise linear forwards;
+}
+
+@keyframes rise {
+  0% { transform: translateY(0) scale(1); opacity: 1; }
+  100% { transform: translateY(-110vh) scale(1.1); opacity: 0; }
+}
+
+
+#sparkles {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 9997; /* чуть ниже шариков и конфетти */
+  overflow: hidden;
+}
+
+.sparkle {
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: white;
+  opacity: 0.8;
+  filter: blur(1px);
+  animation: sparkleMove linear forwards;
+}
+
+@keyframes sparkleMove {
+  0% {
+    transform: translateY(100vh) scale(0.5);
+    opacity: 0.8;
+  }
+  100% {
+    transform: translateY(-20px) scale(1.2);
+    opacity: 0;
+  }
+}
+
+#firework-button-container {
+  position: fixed;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 9999;
+  text-align: center;
+}
+
+#fireworkBtn {
+  padding: 18px 36px;
+  font-size: 26px;
+  background: linear-gradient(135deg, #FF85B3, #FFB347);
+  color: white;
+  border: none;
+  border-radius: 18px;
+  cursor: pointer;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.25);
+  transition: 0.2s;
+}
+
+#fireworkBtn:hover {
+  transform: translateX(-50%) scale(1.1);
+  box-shadow: 0 8px 25px rgba(0,0,0,0.35);
+}
+
+#firework-canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 9998;
+}
